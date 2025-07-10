@@ -1,0 +1,40 @@
+{
+  "name": "cloud-resume-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Lambda backend for Cloud Resume Challenge",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hinait/cloud-resume-backend.git"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "serverless",
+    "dynamodb",
+    "api-gateway",
+    "nodejs",
+    "cloud-resume-challenge"
+  ],
+  "author": "Hina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hinait/cloud-resume-backend/issues"
+  },
+  "homepage": "https://github.com/hinait/cloud-resume-backend#readme",
+  "devDependencies": {
+    "jest": "^30.0.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.844.0",
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^17.2.0"
+  }
+}

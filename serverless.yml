@@ -1,0 +1,6 @@
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    TABLE_NAME: ${env:TABLE_NAME}
+    AWS_REGION: ${env:AWS_REGION}
