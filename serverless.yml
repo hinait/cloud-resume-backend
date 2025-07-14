@@ -1,6 +1,24 @@
+service: cloud-resume-backend
+
 provider:
   name: aws
   runtime: nodejs18.x
   environment:
-    TABLE_NAME: ${env:TABLE_NAME}
-    AWS_REGION: ${env:AWS_REGION}
+    TABLE_NAME: VisitorsTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:UpdateItem
+        - dynamodb:GetItem
+      Resource:
+        - arn:aws:dynamodb:us-east-1:211125692542:table/VisitorsTable
+
+functions:
+  getVisitorCount:
+    handler: index.handler
+    events:
+      - http:
+          path: visitor-count
+          method: get
+          cors: true
+

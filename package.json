@@ -1,6 +1,6 @@
 {
   "name": "cloud-resume-backend",
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "Lambda backend for Cloud Resume Challenge",
   "main": "index.js",
