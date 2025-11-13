@@ -99,7 +99,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-31abbb1b-3363",
-          "S3Key": "serverless/cloud-resume-backend/dev/1752478520911-2025-07-14T07:35:20.911Z/cloud-resume-backend.zip"
+          "S3Key": "serverless/cloud-resume-backend/dev/1763002478910-2025-11-13T02:54:38.910Z/cloud-resume-backend.zip"
         },
         "Handler": "index.handler",
         "Runtime": "nodejs18.x",
@@ -122,14 +122,14 @@
         "GetVisitorCountLogGroup"
       ]
     },
-    "GetVisitorCountLambdaVersion2K74UXsPK2z1HJV1OIkQJkN7I53PSVpPM2bedHa7A": {
+    "GetVisitorCountLambdaVersionL3uu3inGnqcEExVlB1o05FW6ot9BsxCFYCAfqQckk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetVisitorCountLambdaFunction"
         },
-        "CodeSha256": "ACfbvu1hM66mc5BXQQFApBBiD2B+wb0MYD0E+H4UvZE="
+        "CodeSha256": "WsI3f8SJR+O+yzd+pwoYcx0EkmYiNecsDjLLLqy+d74="
       }
     },
     "ApiGatewayRestApi": {
@@ -144,7 +144,7 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceVisitorDashcount": {
+    "ApiGatewayResourceGetvisitorcount": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -153,13 +153,13 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "visitor-count",
+        "PathPart": "getVisitorCount",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodVisitorDashcountOptions": {
+    "ApiGatewayMethodGetvisitorcountOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -197,20 +197,20 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceVisitorDashcount"
+          "Ref": "ApiGatewayResourceGetvisitorcount"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodVisitorDashcountGet": {
+    "ApiGatewayMethodGetvisitorcountGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceVisitorDashcount"
+          "Ref": "ApiGatewayResourceGetvisitorcount"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -250,7 +250,7 @@
         "GetVisitorCountLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1752478489304": {
+    "ApiGatewayDeployment1763002442773": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -259,8 +259,8 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodVisitorDashcountOptions",
-        "ApiGatewayMethodVisitorDashcountGet"
+        "ApiGatewayMethodGetvisitorcountOptions",
+        "ApiGatewayMethodGetvisitorcountGet"
       ]
     },
     "GetVisitorCountLambdaPermissionApiGateway": {
@@ -311,7 +311,7 @@
     "GetVisitorCountLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetVisitorCountLambdaVersion2K74UXsPK2z1HJV1OIkQJkN7I53PSVpPM2bedHa7A"
+        "Ref": "GetVisitorCountLambdaVersionL3uu3inGnqcEExVlB1o05FW6ot9BsxCFYCAfqQckk"
       },
       "Export": {
         "Name": "sls-cloud-resume-backend-dev-GetVisitorCountLambdaFunctionQualifiedArn"

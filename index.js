@@ -14,7 +14,7 @@ exports.handler = async (event) => {
     try {
         const result = await dynamo.update({
             TableName: tableName,
-            Key: { visits: 'visits' },
+            Key: { counterid: 'visits' },
             UpdateExpression: 'SET visitCount = if_not_exists(visitCount, :zero) + :inc',
             ExpressionAttributeValues: {
                 ':inc': 1,
@@ -28,7 +28,8 @@ exports.handler = async (event) => {
         return {
             statusCode: 200,
             headers: {
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*'
             },
             body: JSON.stringify({ count: newCount })
         };
@@ -36,7 +37,11 @@ exports.handler = async (event) => {
         console.error('Error:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Internal Server Error' })
+            body: JSON.stringify({ error: 'Internal Server Error' }),
+            headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*'
+  },
         };
     }
 };
